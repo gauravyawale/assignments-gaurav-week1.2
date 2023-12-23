@@ -9,5 +9,36 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+  if (!n) {
+    return 0;
+  }
+  const start = performance.now();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  const end = performance.now();
+  const timeTaken = end - start;
+  return timeTaken;
 }
+console.log(calculateTime(100));
+console.log(calculateTime(100000));
+console.log(calculateTime(1000000000));
+
+function calculateTimeWithDate(n) {
+  if (!n) {
+    return 0;
+  }
+  const start = new Date();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  const end = new Date();
+  const timeTaken = end - start;
+  return timeTaken;
+}
+
+console.log(calculateTimeWithDate(100));
+console.log(calculateTimeWithDate(100000));
+console.log(calculateTimeWithDate(1000000000));
